@@ -11,13 +11,21 @@ from pydantic_schemas.favorite_song import FavoriteSong
 from sqlalchemy.orm import joinedload
 
 router = APIRouter()
-
-cloudinary.config( 
-    cloud_name = "dsomyc4hv", 
-    api_key = "433823972159394",
-    api_secret = "i7gUk6UOSuARwXHRe6Wz-6Uu7uo",
+///todo
+# cloudinary.config(
+#     cloud_name = "dsomyc4hv",
+#     api_key = "433823972159394",
+#     api_secret = "i7gUk6UOSuARwXHRe6Wz-6Uu7uo",
+#     secure=True
+# )
+import os
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
     secure=True
 )
+
 
 @router.post('/upload', status_code=201)
 def upload_song(song: UploadFile = File(...), 
