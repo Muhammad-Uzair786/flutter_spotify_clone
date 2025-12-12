@@ -11,7 +11,7 @@ from pydantic_schemas.favorite_song import FavoriteSong
 from sqlalchemy.orm import joinedload
 
 router = APIRouter()
-///todo
+# todo
 # cloudinary.config(
 #     cloud_name = "dsomyc4hv",
 #     api_key = "433823972159394",
